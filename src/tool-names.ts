@@ -1,0 +1,191 @@
+// Auto-generated at build time
+export const toolNames: Array<{ name: string; description: string }>= [
+  {
+    "name": "product-environments-get-product-environments",
+    "description": "Get product environments\n\nReturn an array of all product environments, or if conditions are specified,\nreturn the relevant product environments.\n"
+  },
+  {
+    "name": "product-environments-create-product-environment",
+    "description": "Create product environment\n\nCreate a new product environment. Any users that have access to all product environments will also automatically\nhave access to the new product environment.\n"
+  },
+  {
+    "name": "product-environments-get-product-environment",
+    "description": "Get product environment\n\nRetrieve a specific product environment."
+  },
+  {
+    "name": "product-environments-update-product-environment",
+    "description": "Update product environment\n\nUpdate the details of a product environment."
+  },
+  {
+    "name": "product-environments-delete-product-environment",
+    "description": "Delete product environment\n\nDelete a specific product environment."
+  },
+  {
+    "name": "access-keys-get-access-keys",
+    "description": "Get access keys\n\nRetrieve an array of all access keys for a product environment."
+  },
+  {
+    "name": "access-keys-generate-access-key",
+    "description": "Generate an access key\n\nGenerate a new access key."
+  },
+  {
+    "name": "access-keys-delete-access-key-by-name",
+    "description": "Delete access key by name\n\nDelete a specific access key by name."
+  },
+  {
+    "name": "access-keys-update-access-key",
+    "description": "Update an access key\n\nUpdate the name and/or status of an existing access key."
+  },
+  {
+    "name": "access-keys-delete-access-key",
+    "description": "Delete access key\n\nDelete a specific access key."
+  },
+  {
+    "name": "users-get-users",
+    "description": "Get users\n\nReturns an array of all users in the account, or if conditions are specified, returns the relevant users.\n"
+  },
+  {
+    "name": "users-create-user",
+    "description": "Create user\n\nCreate a new user."
+  },
+  {
+    "name": "users-get-user",
+    "description": "Get user\n\nRetrieve a specific user."
+  },
+  {
+    "name": "users-update-user",
+    "description": "Update user\n\nUpdate the details of a user."
+  },
+  {
+    "name": "users-delete-user",
+    "description": "Delete user\n\nDelete a specific user."
+  },
+  {
+    "name": "users-get-groups-for-user",
+    "description": "Get user groups\n\nRetrieve the groups that a specific user belongs to."
+  },
+  {
+    "name": "users-get-sub-accounts-for-user",
+    "description": "Get user sub-accounts\n\nRetrieve the product environments (sub-accounts) that a specific user has access to."
+  },
+  {
+    "name": "user-groups-get-user-groups",
+    "description": "Get User Groups\n\nRetrieve an array of all user groups in the account."
+  },
+  {
+    "name": "user-groups-create-user-group",
+    "description": "Create User Group\n\nCreate a new user group for the account."
+  },
+  {
+    "name": "user-groups-get-user-group",
+    "description": "Get User Group\n\nRetrieve a specific user group."
+  },
+  {
+    "name": "user-groups-update-user-group",
+    "description": "Update User Group\n\nUpdate the name of a specified user group."
+  },
+  {
+    "name": "user-groups-delete-user-group",
+    "description": "Delete User Group\n\nDelete a user group with the specified ID."
+  },
+  {
+    "name": "user-groups-get-users-in-user-group",
+    "description": "Get Users in User Group\n\nRetrieve the users in the group with the specified ID."
+  },
+  {
+    "name": "user-groups-add-user-to-user-group",
+    "description": "Add User to User Group\n\nAdd a user to a group with the specified ID."
+  },
+  {
+    "name": "user-groups-remove-user-from-user-group",
+    "description": "Remove User from User Group\n\nRemove a user from a group with the specified ID."
+  },
+  {
+    "name": "billing-usage-get-billing-usage",
+    "description": "Get billing usage information\n\nRetrieve billing usage metrics for your account and product environments,\nincluding storage, bandwidth, impressions, and transformations.\n\nIf `year` is provided:\n  - **Annual subscription**: Returns the single annual usage cycle that began in the specified year (if any).\n  - **Monthly subscription**: Returns all monthly usage cycles that began in the specified year.\n\nIf `year` is not provided:\n  - Returns usage for the year in which the current active subscription period began.\n  - If no active subscription exists, an empty list is returned.\n\n**Note**: Usage metrics are updated daily, so calling this endpoint once per day gives you the latest data.\n"
+  },
+  {
+    "name": "get-catalog",
+    "description": "Get system roles and policies catalog\n\nRetrieves the catalog of predefined system roles and their associated policies."
+  },
+  {
+    "name": "validate-policy",
+    "description": "Validate a Cedar policy\n\nValidate a Cedar policy"
+  },
+  {
+    "name": "get-schema",
+    "description": "Get Cedar schema\n\nGet Cedar schema"
+  },
+  {
+    "name": "list-system-policies",
+    "description": "Get system policies\n\nRetrieve all system-defined permission policies. Optionally filter the results by `scope_type` (account or product environment) and/or `permission_type` (global or content-specific).\n\n**Note:** If `scope_type` isn't specified as `prodenv`, the account-level policies will be returned.\n"
+  },
+  {
+    "name": "list-custom-policies",
+    "description": "Get custom policies\n\nRetrieve all custom permission policies defined for a specific scope. The scope can be at the account level or within a specific product environment.\n\n**Notes:**\n  * If `scope_type` isn't specified as `prodenv`, the account-level policies will be returned.\n\n  * If `scope_type` is specified as `prodenv`, `scope_id` is required.\n"
+  },
+  {
+    "name": "create-custom-policy",
+    "description": "Create custom policy\n\nCreate a new custom policy with a statement defined in Cedar. This policy specifies permissions for a principal, allowing a specific action on a designated resource, within a particular scope."
+  },
+  {
+    "name": "get-custom-policy",
+    "description": "Get custom policy\n\nGet a specific custom policy."
+  },
+  {
+    "name": "update-custom-policy",
+    "description": "Update custom policy\n\nUpdate a specific custom policy by providing the entire policy entity in the request body. Ensure the new `policy_statement` includes modifications. Existing permissions will be replaced with the new data.\n\n*Note:* Updating a policy with an identical `policy_statement` will trigger a 409 error.\n"
+  },
+  {
+    "name": "delete-custom-policy",
+    "description": "Delete custom policy\n\nDelete a specific custom policy."
+  },
+  {
+    "name": "list-effective-policies",
+    "description": "Get effective policies\n\nRetrieve all roles (along with their system permission policies) associated with principals, and all custom permission policies directly added to principals, all within a specified scope.\n\nOptionally specify a principal to only include roles and policies associated with that principal.\n"
+  },
+  {
+    "name": "list-roles",
+    "description": "Get roles\n\nRetrieve all system and custom roles of a specific `permission_type` (global or content-specific). Optionally filter by `scope_type`, `management_type`, and `policy_parameters`.\n"
+  },
+  {
+    "name": "create-role",
+    "description": "Create custom role\n\nCreate a new custom role."
+  },
+  {
+    "name": "get-role",
+    "description": "Get role\n\nGet a specific system or custom role."
+  },
+  {
+    "name": "update-role",
+    "description": "Update custom role\n\nUpdate a specific custom role by providing all relevant details, including those you want to keep as-is.\n\n*Note:* Updating a role with a name that already exists will trigger a 409 error.\n"
+  },
+  {
+    "name": "delete-role",
+    "description": "Delete custom role\n\nDelete a specific custom role."
+  },
+  {
+    "name": "list-role-principals",
+    "description": "Get a role's principals\n\nRetrieve all principals associated with a specific role."
+  },
+  {
+    "name": "update-role-principals",
+    "description": "Assign principals to a role\n\nAdd or remove principals associated with a role."
+  },
+  {
+    "name": "list-principal-roles",
+    "description": "Get a principal's roles\n\nRetrieve all roles associated with a specific principal."
+  },
+  {
+    "name": "update-principal-roles",
+    "description": "Assign roles to a principal\n\nAdd or remove roles associated with a principal."
+  },
+  {
+    "name": "inspect-principals",
+    "description": "Inspect\n\nRetrieves principals and their assigned roles within a specified scope, based on query filters.\n\nUse this endpoint to determine which users, groups, API keys, or account API keys have roles applied at:\n* A specific `scope_type` (\"account\" or \"prodenv\")\n* A specific `scope_id` (for product environments)\n* Optional content filters (such as `folder_id`, `collection_id`, or `param_key` / `param_value`)\n* Optional `principal_type` (and `principal_id`)\n\nThe response includes all principals that match the specified filters, along with the roles applied to them within that context.\n\nThis endpoint is useful when you want to:\n* Audit who has access within a given scope\n* Identify all principals assigned to roles for a specific folder, collection, asset, or product environment\n* Retrieve role assignments dynamically based on filtering criteria\n"
+  },
+  {
+    "name": "inspect-principals-multiple",
+    "description": "Inspect multiple\n\nRetrieves role assignments for a specified list of principals within a shared scope and optional policy parameters.\n\nUse this endpoint when you already know which principals you want to evaluate and want to check their role assignments in a single request.\n\nIn this request:\n* You explicitly provide the `principals` array in the request body.\n* All principals are evaluated against the same `scope_type`, optional `scope_id`, and optional `policy_parameters`.\n* Unlike `Inspect`, this endpoint doesn't search for matching principals. It evaluates only the principals you provide.\n\nThis endpoint is useful for:\n* Verify role assignments for multiple specified principals at once\n* Comparing role assignments across specific users, groups, or keys\n* Reducing multiple per-principal `Inspect` calls into a single request\n"
+  }
+];
