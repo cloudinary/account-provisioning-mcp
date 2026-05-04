@@ -18,28 +18,27 @@ import {
   MCPToolAnnotationFilter,
   registerDynamicTools,
 } from "./tools.js";
-import { tool$accessKeysDeleteAccessKey } from "./tools/accessKeysDeleteAccessKey.js";
-import { tool$accessKeysDeleteAccessKeyByName } from "./tools/accessKeysDeleteAccessKeyByName.js";
-import { tool$accessKeysGenerateAccessKey } from "./tools/accessKeysGenerateAccessKey.js";
-import { tool$accessKeysGetAccessKeys } from "./tools/accessKeysGetAccessKeys.js";
-import { tool$accessKeysUpdateAccessKey } from "./tools/accessKeysUpdateAccessKey.js";
-import { tool$billingUsageGetBillingUsage } from "./tools/billingUsageGetBillingUsage.js";
-import { tool$policiesCustomCreate } from "./tools/policiesCustomCreate.js";
-import { tool$policiesCustomDelete } from "./tools/policiesCustomDelete.js";
-import { tool$policiesCustomGet } from "./tools/policiesCustomGet.js";
-import { tool$policiesCustomList } from "./tools/policiesCustomList.js";
-import { tool$policiesCustomUpdate } from "./tools/policiesCustomUpdate.js";
-import { tool$policiesEffectiveList } from "./tools/policiesEffectiveList.js";
-import { tool$policiesSystemList } from "./tools/policiesSystemList.js";
+import { tool$accessKeysDelete } from "./tools/accessKeysDelete.js";
+import { tool$accessKeysDeleteByName } from "./tools/accessKeysDeleteByName.js";
+import { tool$accessKeysGenerate } from "./tools/accessKeysGenerate.js";
+import { tool$accessKeysList } from "./tools/accessKeysList.js";
+import { tool$accessKeysUpdate } from "./tools/accessKeysUpdate.js";
+import { tool$billingUsageGet } from "./tools/billingUsageGet.js";
+import { tool$customPoliciesCreate } from "./tools/customPoliciesCreate.js";
+import { tool$customPoliciesDelete } from "./tools/customPoliciesDelete.js";
+import { tool$customPoliciesGet } from "./tools/customPoliciesGet.js";
+import { tool$customPoliciesList } from "./tools/customPoliciesList.js";
+import { tool$customPoliciesUpdate } from "./tools/customPoliciesUpdate.js";
+import { tool$effectivePoliciesList } from "./tools/effectivePoliciesList.js";
 import { tool$principalsInspect } from "./tools/principalsInspect.js";
 import { tool$principalsInspectMultiple } from "./tools/principalsInspectMultiple.js";
 import { tool$principalsListRoles } from "./tools/principalsListRoles.js";
 import { tool$principalsUpdateRoles } from "./tools/principalsUpdateRoles.js";
-import { tool$productEnvironmentsCreateProductEnvironment } from "./tools/productEnvironmentsCreateProductEnvironment.js";
-import { tool$productEnvironmentsDeleteProductEnvironment } from "./tools/productEnvironmentsDeleteProductEnvironment.js";
-import { tool$productEnvironmentsGetProductEnvironment } from "./tools/productEnvironmentsGetProductEnvironment.js";
-import { tool$productEnvironmentsGetProductEnvironments } from "./tools/productEnvironmentsGetProductEnvironments.js";
-import { tool$productEnvironmentsUpdateProductEnvironment } from "./tools/productEnvironmentsUpdateProductEnvironment.js";
+import { tool$productEnvironmentsCreate } from "./tools/productEnvironmentsCreate.js";
+import { tool$productEnvironmentsDelete } from "./tools/productEnvironmentsDelete.js";
+import { tool$productEnvironmentsGet } from "./tools/productEnvironmentsGet.js";
+import { tool$productEnvironmentsList } from "./tools/productEnvironmentsList.js";
+import { tool$productEnvironmentsUpdate } from "./tools/productEnvironmentsUpdate.js";
 import { tool$publicGetCatalog } from "./tools/publicGetCatalog.js";
 import { tool$publicGetSchema } from "./tools/publicGetSchema.js";
 import { tool$publicValidatePolicy } from "./tools/publicValidatePolicy.js";
@@ -50,21 +49,22 @@ import { tool$rolesList } from "./tools/rolesList.js";
 import { tool$rolesListPrincipals } from "./tools/rolesListPrincipals.js";
 import { tool$rolesUpdate } from "./tools/rolesUpdate.js";
 import { tool$rolesUpdatePrincipals } from "./tools/rolesUpdatePrincipals.js";
-import { tool$userGroupsAddUserToUserGroup } from "./tools/userGroupsAddUserToUserGroup.js";
-import { tool$userGroupsCreateUserGroup } from "./tools/userGroupsCreateUserGroup.js";
-import { tool$userGroupsDeleteUserGroup } from "./tools/userGroupsDeleteUserGroup.js";
-import { tool$userGroupsGetUserGroup } from "./tools/userGroupsGetUserGroup.js";
-import { tool$userGroupsGetUserGroups } from "./tools/userGroupsGetUserGroups.js";
-import { tool$userGroupsGetUsersInUserGroup } from "./tools/userGroupsGetUsersInUserGroup.js";
-import { tool$userGroupsRemoveUserFromUserGroup } from "./tools/userGroupsRemoveUserFromUserGroup.js";
-import { tool$userGroupsUpdateUserGroup } from "./tools/userGroupsUpdateUserGroup.js";
-import { tool$usersCreateUser } from "./tools/usersCreateUser.js";
-import { tool$usersDeleteUser } from "./tools/usersDeleteUser.js";
-import { tool$usersGetGroupsForUser } from "./tools/usersGetGroupsForUser.js";
-import { tool$usersGetSubAccountsForUser } from "./tools/usersGetSubAccountsForUser.js";
-import { tool$usersGetUser } from "./tools/usersGetUser.js";
-import { tool$usersGetUsers } from "./tools/usersGetUsers.js";
-import { tool$usersUpdateUser } from "./tools/usersUpdateUser.js";
+import { tool$systemPoliciesList } from "./tools/systemPoliciesList.js";
+import { tool$userGroupsAddUser } from "./tools/userGroupsAddUser.js";
+import { tool$userGroupsCreate } from "./tools/userGroupsCreate.js";
+import { tool$userGroupsDelete } from "./tools/userGroupsDelete.js";
+import { tool$userGroupsGet } from "./tools/userGroupsGet.js";
+import { tool$userGroupsList } from "./tools/userGroupsList.js";
+import { tool$userGroupsListUsers } from "./tools/userGroupsListUsers.js";
+import { tool$userGroupsRemoveUser } from "./tools/userGroupsRemoveUser.js";
+import { tool$userGroupsUpdate } from "./tools/userGroupsUpdate.js";
+import { tool$usersCreate } from "./tools/usersCreate.js";
+import { tool$usersDelete } from "./tools/usersDelete.js";
+import { tool$usersGet } from "./tools/usersGet.js";
+import { tool$usersGetGroups } from "./tools/usersGetGroups.js";
+import { tool$usersList } from "./tools/usersList.js";
+import { tool$usersListSubAccounts } from "./tools/usersListSubAccounts.js";
+import { tool$usersUpdate } from "./tools/usersUpdate.js";
 
 export function createMCPServer(deps: {
   logger: ConsoleLogger;
@@ -82,7 +82,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "CldProvisioning",
-    version: "0.1.0",
+    version: "0.1.1",
   });
 
   const getClient = deps.getSDK || (() =>
@@ -130,42 +130,42 @@ export function createMCPServer(deps: {
   const register = { tool, resource, resourceTemplate, prompt };
   void register; // suppress unused warnings
 
-  tool(tool$productEnvironmentsGetProductEnvironments);
-  tool(tool$productEnvironmentsCreateProductEnvironment);
-  tool(tool$productEnvironmentsGetProductEnvironment);
-  tool(tool$productEnvironmentsUpdateProductEnvironment);
-  tool(tool$productEnvironmentsDeleteProductEnvironment);
-  tool(tool$accessKeysGetAccessKeys);
-  tool(tool$accessKeysGenerateAccessKey);
-  tool(tool$accessKeysDeleteAccessKeyByName);
-  tool(tool$accessKeysUpdateAccessKey);
-  tool(tool$accessKeysDeleteAccessKey);
-  tool(tool$usersGetUsers);
-  tool(tool$usersCreateUser);
-  tool(tool$usersGetUser);
-  tool(tool$usersUpdateUser);
-  tool(tool$usersDeleteUser);
-  tool(tool$usersGetGroupsForUser);
-  tool(tool$usersGetSubAccountsForUser);
-  tool(tool$userGroupsGetUserGroups);
-  tool(tool$userGroupsCreateUserGroup);
-  tool(tool$userGroupsGetUserGroup);
-  tool(tool$userGroupsUpdateUserGroup);
-  tool(tool$userGroupsDeleteUserGroup);
-  tool(tool$userGroupsGetUsersInUserGroup);
-  tool(tool$userGroupsAddUserToUserGroup);
-  tool(tool$userGroupsRemoveUserFromUserGroup);
-  tool(tool$billingUsageGetBillingUsage);
+  tool(tool$productEnvironmentsList);
+  tool(tool$productEnvironmentsCreate);
+  tool(tool$productEnvironmentsGet);
+  tool(tool$productEnvironmentsUpdate);
+  tool(tool$productEnvironmentsDelete);
+  tool(tool$accessKeysList);
+  tool(tool$accessKeysGenerate);
+  tool(tool$accessKeysDeleteByName);
+  tool(tool$accessKeysUpdate);
+  tool(tool$accessKeysDelete);
+  tool(tool$usersList);
+  tool(tool$usersCreate);
+  tool(tool$usersGet);
+  tool(tool$usersUpdate);
+  tool(tool$usersDelete);
+  tool(tool$usersGetGroups);
+  tool(tool$usersListSubAccounts);
+  tool(tool$userGroupsList);
+  tool(tool$userGroupsCreate);
+  tool(tool$userGroupsGet);
+  tool(tool$userGroupsUpdate);
+  tool(tool$userGroupsDelete);
+  tool(tool$userGroupsListUsers);
+  tool(tool$userGroupsAddUser);
+  tool(tool$userGroupsRemoveUser);
+  tool(tool$billingUsageGet);
   tool(tool$publicGetCatalog);
   tool(tool$publicValidatePolicy);
   tool(tool$publicGetSchema);
-  tool(tool$policiesSystemList);
-  tool(tool$policiesCustomList);
-  tool(tool$policiesCustomCreate);
-  tool(tool$policiesCustomGet);
-  tool(tool$policiesCustomUpdate);
-  tool(tool$policiesCustomDelete);
-  tool(tool$policiesEffectiveList);
+  tool(tool$systemPoliciesList);
+  tool(tool$customPoliciesList);
+  tool(tool$customPoliciesCreate);
+  tool(tool$customPoliciesGet);
+  tool(tool$customPoliciesUpdate);
+  tool(tool$customPoliciesDelete);
+  tool(tool$effectivePoliciesList);
   tool(tool$rolesList);
   tool(tool$rolesCreate);
   tool(tool$rolesGet);

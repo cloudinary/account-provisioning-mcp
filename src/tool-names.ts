@@ -1,107 +1,107 @@
 // Auto-generated at build time
 export const toolNames: Array<{ name: string; description: string }>= [
   {
-    "name": "product-environments-get-product-environments",
+    "name": "product-environments-list",
     "description": "Get product environments\n\nReturn an array of all product environments, or if conditions are specified,\nreturn the relevant product environments.\n"
   },
   {
-    "name": "product-environments-create-product-environment",
+    "name": "product-environments-create",
     "description": "Create product environment\n\nCreate a new product environment. Any users that have access to all product environments will also automatically\nhave access to the new product environment.\n"
   },
   {
-    "name": "product-environments-get-product-environment",
+    "name": "product-environments-get",
     "description": "Get product environment\n\nRetrieve a specific product environment."
   },
   {
-    "name": "product-environments-update-product-environment",
+    "name": "product-environments-update",
     "description": "Update product environment\n\nUpdate the details of a product environment."
   },
   {
-    "name": "product-environments-delete-product-environment",
+    "name": "product-environments-delete",
     "description": "Delete product environment\n\nDelete a specific product environment."
   },
   {
-    "name": "access-keys-get-access-keys",
+    "name": "access-keys-list",
     "description": "Get access keys\n\nRetrieve an array of all access keys for a product environment."
   },
   {
-    "name": "access-keys-generate-access-key",
+    "name": "access-keys-generate",
     "description": "Generate an access key\n\nGenerate a new access key."
   },
   {
-    "name": "access-keys-delete-access-key-by-name",
+    "name": "access-keys-delete-by-name",
     "description": "Delete access key by name\n\nDelete a specific access key by name."
   },
   {
-    "name": "access-keys-update-access-key",
+    "name": "access-keys-update",
     "description": "Update an access key\n\nUpdate the name and/or status of an existing access key."
   },
   {
-    "name": "access-keys-delete-access-key",
+    "name": "access-keys-delete",
     "description": "Delete access key\n\nDelete a specific access key."
   },
   {
-    "name": "users-get-users",
+    "name": "users-list",
     "description": "Get users\n\nReturns an array of all users in the account, or if conditions are specified, returns the relevant users.\n"
   },
   {
-    "name": "users-create-user",
+    "name": "users-create",
     "description": "Create user\n\nCreate a new user."
   },
   {
-    "name": "users-get-user",
+    "name": "users-get",
     "description": "Get user\n\nRetrieve a specific user."
   },
   {
-    "name": "users-update-user",
+    "name": "users-update",
     "description": "Update user\n\nUpdate the details of a user."
   },
   {
-    "name": "users-delete-user",
+    "name": "users-delete",
     "description": "Delete user\n\nDelete a specific user."
   },
   {
-    "name": "users-get-groups-for-user",
+    "name": "users-get-groups",
     "description": "Get user groups\n\nRetrieve the groups that a specific user belongs to."
   },
   {
-    "name": "users-get-sub-accounts-for-user",
+    "name": "users-list-sub-accounts",
     "description": "Get user sub-accounts\n\nRetrieve the product environments (sub-accounts) that a specific user has access to."
   },
   {
-    "name": "user-groups-get-user-groups",
+    "name": "user-groups-list",
     "description": "Get User Groups\n\nRetrieve an array of all user groups in the account."
   },
   {
-    "name": "user-groups-create-user-group",
+    "name": "user-groups-create",
     "description": "Create User Group\n\nCreate a new user group for the account."
   },
   {
-    "name": "user-groups-get-user-group",
+    "name": "user-groups-get",
     "description": "Get User Group\n\nRetrieve a specific user group."
   },
   {
-    "name": "user-groups-update-user-group",
+    "name": "user-groups-update",
     "description": "Update User Group\n\nUpdate the name of a specified user group."
   },
   {
-    "name": "user-groups-delete-user-group",
+    "name": "user-groups-delete",
     "description": "Delete User Group\n\nDelete a user group with the specified ID."
   },
   {
-    "name": "user-groups-get-users-in-user-group",
+    "name": "user-groups-list-users",
     "description": "Get Users in User Group\n\nRetrieve the users in the group with the specified ID."
   },
   {
-    "name": "user-groups-add-user-to-user-group",
+    "name": "user-groups-add-user",
     "description": "Add User to User Group\n\nAdd a user to a group with the specified ID."
   },
   {
-    "name": "user-groups-remove-user-from-user-group",
+    "name": "user-groups-remove-user",
     "description": "Remove User from User Group\n\nRemove a user from a group with the specified ID."
   },
   {
-    "name": "billing-usage-get-billing-usage",
+    "name": "billing-usage-get",
     "description": "Get billing usage information\n\nRetrieve billing usage metrics for your account and product environments,\nincluding storage, bandwidth, impressions, and transformations.\n\nIf `year` is provided:\n  - **Annual subscription**: Returns the single annual usage cycle that began in the specified year (if any).\n  - **Monthly subscription**: Returns all monthly usage cycles that began in the specified year.\n\nIf `year` is not provided:\n  - Returns usage for the year in which the current active subscription period began.\n  - If no active subscription exists, an empty list is returned.\n\n**Note**: Usage metrics are updated daily, so calling this endpoint once per day gives you the latest data.\n"
   },
   {
