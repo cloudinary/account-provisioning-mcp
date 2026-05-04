@@ -29,6 +29,9 @@
     "type": "git",
     "url": "https://github.com/cloudinary/account-provisioning-mcp.git"
   },
+  "screenshots": [
+    "icon.png"
+  ],
   "server": {
     "type": "node",
     "entry_point": "./bin/mcp-server.js",
