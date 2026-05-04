@@ -1,0 +1,36 @@
+speakeasyVersion: 1.761.11
+sources:
+    CloudinaryProvisioning-MCP-OAS:
+        sourceNamespace: cloudinary-provisioning-mcp-oas
+        sourceRevisionDigest: sha256:af0c32be04ea90f2fd7043ecc61d22504a09eedd3ed082d33a7dc232cde320a1
+        sourceBlobDigest: sha256:13419e5d889664a8b28d543a73f3604bdc41fc784b20fc6f6da6f007281c0aa9
+        tags:
+            - latest
+            - 0.2.1
+targets:
+    cloudinary-provisioning-mcp:
+        source: CloudinaryProvisioning-MCP-OAS
+        sourceNamespace: cloudinary-provisioning-mcp-oas
+        sourceRevisionDigest: sha256:af0c32be04ea90f2fd7043ecc61d22504a09eedd3ed082d33a7dc232cde320a1
+        sourceBlobDigest: sha256:13419e5d889664a8b28d543a73f3604bdc41fc784b20fc6f6da6f007281c0aa9
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        CloudinaryProvisioning-MCP-OAS:
+            inputs:
+                - location: https://cloudinary.github.io/api-schemas/provisioning/schema.yml
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+                - location: https://cloudinary.github.io/api-schemas/overlays/security-scheme-account-overlay.yaml
+                - location: https://cloudinary.github.io/api-schemas/permissions/overlays/additional-properties-overlay.yaml
+                - location: https://cloudinary.github.io/api-schemas/overlays/empty-objects-passthrough-overlay.yml
+            registry:
+                location: registry.speakeasyapi.dev/cloudinary/cloudinary/cloudinary-provisioning-mcp-oas
+    targets:
+        cloudinary-provisioning-mcp:
+            target: mcp-typescript
+            source: CloudinaryProvisioning-MCP-OAS
+            publish:
+                npm:
+                    token: $npm_token

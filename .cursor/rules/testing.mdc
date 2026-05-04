@@ -1,0 +1,31 @@
+---
+description: MCP server testing conventions and sanity test patterns
+globs: sanity-test-runner.mjs
+alwaysApply: false
+---
+
+# MCP Server Testing
+
+## Sanity Test (`sanity-test-runner.mjs`)
+
+- Tests MCP tools against the live Cloudinary Provisioning API via MCP client
+- Requires `CLOUDINARY_ACCOUNT_URL` env var (or individual `CLOUDINARY_PROVISIONING_*` vars)
+- Run: `node sanity-test-runner.mjs` from the project root
+- Server must be running: `node bin/mcp-server.js start` (default port 2718)
+
+### Conventions
+
+- **Non-destructive by default**: read operations use existing data
+- **Create/update/delete**: only on items created during the test, prefixed with `sdk-test-{timestamp}`
+- **Cleanup**: all created resources are deleted in reverse order in a `finally` block
+- **Account limits**: gracefully skip (not fail) when hitting capacity limits (e.g., `max_users`)
+- **Feature gates**: skip tests for features not enabled on the account (e.g., custom roles)
+
+### Known API quirks
+
+- `users.getGroups()` returns `{ groups }` not `{ userGroups }`
+- `userGroups.addUser()` returns `{}` (empty object)
+- `userGroups.listUsers()` returns users with `.id` not `.userId`
+- `accessKeys.update/delete` use `key` field (not `apiKey`)
+- `customPolicies.list()` requires `scopeType` param to return meaningful data
+- `effectivePolicies.list()` requires `scopeType` param (omitting it returns a 400 error)

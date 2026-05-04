@@ -1,0 +1,44 @@
+---
+description: Speakeasy MCP server generation configuration and workflow conventions
+globs: .speakeasy/**/*.yaml
+alwaysApply: false
+---
+
+# Speakeasy MCP Server Configuration
+
+## gen.yaml
+
+Key MCP-typescript settings:
+- `enableMCPServer: true` — generates MCP server with tools, CLI, and transports
+- `maxMethodParams: 100` — positional args for generated tool functions
+- `envVarPrefix: CLOUDINARY` — env var auto-loading for security and globals
+- `moduleFormat: dual` — publish both CJS and ESM
+- `mcpbManifestOverlay` — metadata for the MCP registry (name, icon, keywords, user_config)
+
+## workflow.yaml
+
+- Target: `mcp-typescript` (not `typescript` — this generates an MCP server, not a plain SDK)
+- npm token uses Speakeasy variable syntax: `token: $npm_token`
+- NOT GitHub Actions expression syntax `${{ secrets.* }}`
+- The GitHub secret name is `SDK_NPM_AUTH_TOKEN`
+
+## Publishing (pr mode)
+
+- `sdk_generation.yaml` generates MCP server and opens a PR (`mode: pr`)
+- `sdk_publish.yaml` publishes to npm when the PR merges (push to main + gen.lock change)
+- Both workflows must pass `npm_token: ${{ secrets.SDK_NPM_AUTH_TOKEN }}` in secrets
+
+## Customization layers
+
+1. **OpenAPI overlays** (remote URLs in `workflow.yaml`) — schema-level changes
+2. **`gen.yaml`** — generation config (naming, params, env vars, etc.)
+3. **SDK hooks** (`src/hooks/`) — custom auth, user-agent, request/response transforms
+4. **Custom code** — Speakeasy's 3-way merge preserves edits across regenerations (`persistentEdits`)
+5. **Post-generation scripts** (`scripts/`) — for fixes Speakeasy can't handle natively
+
+## Build pipeline
+
+1. `prebuild`: `scripts/sync-server-json.sh` (syncs version from package.json to server.json)
+2. `build`: `bun i && bun src/mcp-server/build.mts && tsc`
+   - Bun bundles CLI entry → `bin/mcp-server.js`
+   - tsc emits declarations to `esm/`

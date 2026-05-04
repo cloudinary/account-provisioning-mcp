@@ -1,0 +1,68 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.cloudinary/account-provisioning-mcp",
+  "title": "Cloudinary Account Provisioning",
+  "description": "Manage Cloudinary account resources: product environments, users, groups, access keys, billing, roles, and permissions.",
+  "repository": {
+    "url": "https://github.com/cloudinary/account-provisioning-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@cloudinary/account-provisioning-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "CLOUDINARY_ACCOUNT_ID",
+          "description": "Your Cloudinary Account ID. Found in Console → Settings → Account API Keys.",
+          "isRequired": true,
+          "isSecret": false
+        },
+        {
+          "name": "CLOUDINARY_PROVISIONING_API_KEY",
+          "description": "Your Cloudinary Provisioning API key. Found in Console → Settings → Account API Keys.",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "CLOUDINARY_PROVISIONING_API_SECRET",
+          "description": "Your Cloudinary Provisioning API secret. Found in Console → Settings → Account API Keys.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    },
+    {
+      "registryType": "oci",
+      "identifier": "docker.io/cloudinary/account-provisioning-mcp:0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "CLOUDINARY_ACCOUNT_ID",
+          "description": "Your Cloudinary Account ID. Found in Console → Settings → Account API Keys.",
+          "isRequired": true,
+          "isSecret": false
+        },
+        {
+          "name": "CLOUDINARY_PROVISIONING_API_KEY",
+          "description": "Your Cloudinary Provisioning API key. Found in Console → Settings → Account API Keys.",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "CLOUDINARY_PROVISIONING_API_SECRET",
+          "description": "Your Cloudinary Provisioning API secret. Found in Console → Settings → Account API Keys.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

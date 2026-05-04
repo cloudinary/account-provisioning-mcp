@@ -1,0 +1,58 @@
+{
+  "name": "@cloudinary/account-provisioning-mcp",
+  "version": "0.1.0",
+  "description": "Cloudinary Account Provisioning MCP Server — manage product environments, users, groups, access keys, billing, roles, and permissions.",
+  "mcpName": "io.github.cloudinary/account-provisioning-mcp",
+  "author": "Cloudinary",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudinary/account-provisioning-mcp.git"
+  },
+  "homepage": "https://github.com/cloudinary/account-provisioning-mcp",
+  "keywords": [
+    "cloudinary",
+    "mcp",
+    "model-context-protocol",
+    "provisioning",
+    "account",
+    "users",
+    "permissions",
+    "roles"
+  ],
+  "bin": {
+    "@cloudinary/account-provisioning-mcp": "bin/mcp-server.js",
+    "mcp": "bin/mcp-server.js"
+  },
+  "scripts": {
+    "prebuild": "bash scripts/sync-server-json.sh",
+    "build": "bun i && bun src/mcp-server/build.mts && tsc",
+    "mcpb:build": "bun i && bun src/mcp-server/build.mts --pack && tsc",
+    "check": "npm run lint",
+    "lint": "eslint --cache --max-warnings=0 src",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.26.0",
+    "@stricli/core": "^1.1.2",
+    "express": "^5.1.0",
+    "zod": "^4.0.0"
+  },
+  "overrides": {
+    "@modelcontextprotocol/sdk": "1.26.0"
+  },
+  "devDependencies": {
+    "@anthropic-ai/mcpb": "^1.2.0",
+    "@eslint/js": "^9.26.0",
+    "@types/bun": "^1.2.13",
+    "@types/express": "^5.0.1",
+    "@types/node": "^18.19.3",
+    "bun": "^1.2.12",
+    "eslint": "^9.26.0",
+    "globals": "^16.0.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.31.1"
+  }
+}

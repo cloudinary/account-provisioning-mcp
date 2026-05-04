@@ -1,0 +1,128 @@
+configVersion: 2.0.0
+generation:
+  sdkClassName: CldProvisioning
+  maintainOpenAPIOrder: true
+  usageSnippets:
+    optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    nameResolutionFeb2025: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+    securityFeb2025: true
+    sharedErrorComponentsApr2025: true
+    sharedNestedComponentsJan2026: false
+    nameOverrideFeb2026: false
+  auth:
+    oAuth2ClientCredentialsEnabled: true
+    oAuth2PasswordEnabled: true
+    hoistGlobalSecurity: true
+  inferSSEOverload: true
+  sdkHooksConfigAccess: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  versioningStrategy: automatic
+  persistentEdits:
+    enabled: "true"
+  tests:
+    generateTests: false
+    generateNewTests: true
+    skipResponseBodyAssertions: false
+mcp-typescript:
+  version: 0.1.1
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
+  additionalPackageJSON: {}
+  advancedFlags:
+    - apiHost
+    - region
+    - serverIndex
+  author: Cloudinary
+  authors:
+    - Cloudinary
+    - Speakeasy
+  baseErrorName: CldProvisioningError
+  clientServerStatusCodesAsErrors: true
+  cloudflareEnabled: false
+  constFieldsAlwaysOptional: true
+  defaultErrorName: CldProvisioningDefaultError
+  enableCustomCodeRegions: false
+  enableMCPServer: true
+  enableReactQuery: false
+  enumFormat: union
+  envVarPrefix: CLOUDINARY
+  fixEnumNameSanitization: false
+  flattenGlobalSecurity: true
+  flatteningOrder: parameters-first
+  formStringArrayEncodeMode: encoded-string
+  generateExamples: false
+  gramEnabled: false
+  imports:
+    option: openapi
+    paths:
+      callbacks: models/callbacks
+      errors: models/errors
+      operations: models/operations
+      shared: models/components
+      webhooks: models/webhooks
+  inferUnionDiscriminators: false
+  inputModelSuffix: input
+  jsonpath: legacy
+  maxMethodParams: 100
+  mcpbManifestOverlay:
+    author:
+      name: Cloudinary
+      url: https://cloudinary.com
+    description: Cloudinary Account Provisioning MCP Server
+    display_name: Cloudinary Account Provisioning
+    documentation: https://cloudinary.com/documentation/provisioning_api
+    homepage: https://github.com/cloudinary/account-provisioning-mcp
+    icon: icon.png
+    keywords:
+      - cloudinary
+      - provisioning
+      - account
+      - users
+      - permissions
+      - roles
+      - policies
+    license: MIT
+    long_description: An MCP server for managing your Cloudinary account. Provision product environments, manage users and groups, access keys, billing usage, and role-based permissions.
+    privacy_policies:
+      - https://cloudinary.com/privacy
+    repository:
+      type: git
+      url: https://github.com/cloudinary/account-provisioning-mcp.git
+    user_config:
+      account_id:
+        description: Your Cloudinary Account ID. Found in Console → Settings → Account API Keys.
+        required: true
+        title: Account ID
+        type: string
+      provisioning_api_key:
+        description: Your Cloudinary Provisioning API key. Found in Console → Settings → Account API Keys.
+        required: true
+        title: Provisioning API Key
+        type: string
+      provisioning_api_secret:
+        description: Your Cloudinary Provisioning API secret. Found in Console → Settings → Account API Keys.
+        required: true
+        sensitive: true
+        title: Provisioning API Secret
+        type: string
+  methodArguments: require-security-and-request
+  moduleFormat: dual
+  multipartArrayFormat: legacy
+  outputModelSuffix: output
+  packageName: '@cloudinary/account-provisioning-mcp'
+  responseFormat: flat
+  sseFlatResponse: true
+  templateVersion: v2
+  usageSDKInitImports: []
+  useIndexModules: true
+  validateResponse: false

@@ -1,0 +1,20 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    CloudinaryProvisioning-MCP-OAS:
+        inputs:
+            - location: https://cloudinary.github.io/api-schemas/provisioning/schema.yml
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            - location: https://cloudinary.github.io/api-schemas/overlays/security-scheme-account-overlay.yaml
+            - location: https://cloudinary.github.io/api-schemas/permissions/overlays/additional-properties-overlay.yaml
+            - location: https://cloudinary.github.io/api-schemas/overlays/empty-objects-passthrough-overlay.yml
+        registry:
+            location: registry.speakeasyapi.dev/cloudinary/cloudinary/cloudinary-provisioning-mcp-oas
+targets:
+    cloudinary-provisioning-mcp:
+        target: mcp-typescript
+        source: CloudinaryProvisioning-MCP-OAS
+        publish:
+            npm:
+                token: $npm_token
