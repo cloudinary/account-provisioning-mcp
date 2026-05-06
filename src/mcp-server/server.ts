@@ -82,7 +82,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "CldProvisioning",
-    version: "0.1.2",
+    version: "0.1.3",
   });
 
   const getClient = deps.getSDK || (() =>
