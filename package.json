@@ -1,9 +1,13 @@
 {
   "name": "@cloudinary/account-provisioning-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Cloudinary",
   "type": "module",
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudinary/account-provisioning-mcp.git"
+  },
   "bin": {
     "@cloudinary/account-provisioning-mcp": "bin/mcp-server.js",
     "mcp": "bin/mcp-server.js"
