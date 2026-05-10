@@ -939,7 +939,7 @@ http_headers = { "provisioning-api-key" = "YOUR_PROVISIONING_API_KEY", "provisio
         <h1>Instructions</h1>
         <p>One-click installation for Claude Desktop users</p>
         <div class="instruction-item">
-          <a href="https://github.com/cloudinary/account-provisioning-mcp/releases/download/v0.1.2/mcp-server.mcpb" download="mcp-server.mcpb" class="action-button header-action" style="display: inline-flex; margin-bottom: 16px;">
+          <a href="https://github.com/cloudinary/account-provisioning-mcp/releases/download/v0.1.3/mcp-server.mcpb" download="mcp-server.mcpb" class="action-button header-action" style="display: inline-flex; margin-bottom: 16px;">
             📥 Download MCP Bundle
           </a>
         </div>
