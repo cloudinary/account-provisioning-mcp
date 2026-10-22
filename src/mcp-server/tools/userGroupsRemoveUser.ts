@@ -30,7 +30,7 @@ Remove a user from a group with the specified ID.`,
       client,
       args.group_id,
       args.user_id,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

@@ -28,7 +28,7 @@ Delete a specific product environment.`,
     const [result] = await productEnvironmentsDelete(
       client,
       args.sub_account_id,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

@@ -7,12 +7,12 @@
     "url": "https://github.com/cloudinary/account-provisioning-mcp",
     "source": "github"
   },
-  "version": "0.1.0",
+  "version": "0.1.2",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "@cloudinary/account-provisioning-mcp",
-      "version": "0.1.0",
+      "version": "0.1.2",
       "transport": {
         "type": "stdio"
       },
@@ -39,7 +39,7 @@
     },
     {
       "registryType": "oci",
-      "identifier": "docker.io/cloudinary/account-provisioning-mcp:0.1.0",
+      "identifier": "docker.io/cloudinary/account-provisioning-mcp:0.1.2",
       "transport": {
         "type": "stdio"
       },

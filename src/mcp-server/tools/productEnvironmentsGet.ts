@@ -28,7 +28,7 @@ Retrieve a specific product environment.`,
     const [result] = await productEnvironmentsGet(
       client,
       args.sub_account_id,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

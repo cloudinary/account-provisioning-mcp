@@ -31,7 +31,7 @@ Get a specific custom policy.`,
     const [result] = await customPoliciesGet(
       client,
       args.policy_id,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {
