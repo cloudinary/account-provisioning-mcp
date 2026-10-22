@@ -44,7 +44,7 @@ return the relevant product environments.
       args.ids,
       args.cloud_names,
       args.prefix,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

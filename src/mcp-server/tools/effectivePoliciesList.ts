@@ -48,7 +48,7 @@ Optionally specify a principal to only include roles and policies associated wit
       args.scope_id,
       args.principal_type,
       args.principal_id,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

@@ -31,7 +31,7 @@ Update the details of a user.`,
       client,
       args.user_id,
       args.UserRequest,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

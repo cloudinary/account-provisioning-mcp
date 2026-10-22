@@ -34,7 +34,7 @@ Add or remove principals associated with a role.`,
       client,
       args.role_id,
       args.UpdateRolePrincipalsRequest,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

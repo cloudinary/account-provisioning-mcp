@@ -33,7 +33,7 @@ Update the name of a specified user group.`,
       client,
       args.group_id,
       args.UserGroupRequest,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

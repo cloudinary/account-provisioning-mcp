@@ -30,7 +30,7 @@ Retrieve an array of all user groups in the account.`,
     const [result] = await userGroupsList(
       client,
       args.extended_details,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

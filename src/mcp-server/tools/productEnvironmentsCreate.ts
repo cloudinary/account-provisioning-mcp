@@ -32,7 +32,7 @@ have access to the new product environment.
     const [result] = await productEnvironmentsCreate(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

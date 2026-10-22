@@ -33,7 +33,7 @@ Delete a specific custom role.`,
       client,
       args.role_id,
       args.force,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {
