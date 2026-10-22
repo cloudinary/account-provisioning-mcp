@@ -20,7 +20,9 @@ import { landingPageExpress } from "../../../landing-page.js";
 
 interface ServeCommandFlags extends MCPServerFlags {
   readonly port: number;
+  readonly host: string;
   readonly "disable-static-auth": boolean;
+  readonly "allowed-origins"?: string[];
   readonly "log-level": ConsoleLoggerLevel;
   readonly env?: [string, string][];
 }
@@ -37,11 +39,29 @@ async function startStreamableHTTP(cliFlags: ServeCommandFlags) {
   const logger = createConsoleLogger(cliFlags["log-level"]);
   const app = express();
 
-  // Enable CORS for cross-origin requests
+  const allowedOrigins = cliFlags["allowed-origins"];
+
+  // Origin validation middleware (replaces wildcard CORS)
   app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    res.header("Access-Control-Allow-Headers", "*");
+    const origin = req.headers.origin;
+
+    if (allowedOrigins && allowedOrigins.length > 0 && origin) {
+      if (allowedOrigins.includes(origin)) {
+        res.header("Access-Control-Allow-Origin", origin);
+        res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        res.header("Access-Control-Allow-Headers", "Content-Type, Accept, Mcp-Session-Id, Last-Event-Id");
+        res.header("Vary", "Origin");
+      } else {
+        // Origin not allowed — reject preflight, omit CORS headers on actual requests
+        if (req.method === "OPTIONS") {
+          res.sendStatus(403);
+          return;
+        }
+      }
+    }
+    // When no allowed-origins configured and binding to localhost, no CORS headers
+    // are needed (same-origin by default). This is the secure default.
+
     if (req.method === "OPTIONS") {
       res.sendStatus(204);
       return;
@@ -91,10 +111,16 @@ async function startStreamableHTTP(cliFlags: ServeCommandFlags) {
 
   app.get("/", landingPageExpress);
 
-  const httpServer = app.listen(cliFlags.port, "0.0.0.0", () => {
+  const httpServer = app.listen(cliFlags.port, cliFlags.host, () => {
     const ha = httpServer.address();
     const host = typeof ha === "string" ? ha : `${ha?.address}:${ha?.port}`;
     logger.info("MCP Streamable HTTP server started", { host });
+    if (cliFlags.host === "0.0.0.0") {
+      logger.warning(
+        "Server is listening on all interfaces (0.0.0.0). " +
+        "This exposes the server to the network. Use --host 127.0.0.1 for localhost-only access."
+      );
+    }
   });
 
   const shutdown = () => {

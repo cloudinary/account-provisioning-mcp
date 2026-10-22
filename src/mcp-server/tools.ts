@@ -123,10 +123,50 @@ export async function formatResult(
       : [{ type: "audio", data, mimeType: contentType }];
   } else {
     const text = await response.text();
-    content = [{ type: "text", text }];
+    content = [{ type: "text", text: redactSecrets(text) }];
   }
 
   return response.ok ? { content } : { content, isError: true };
+}
+
+/**
+ * Redact sensitive credential fields from JSON text before it enters the LLM
+ * context. This prevents API secrets from being exposed to the model (and
+ * potentially logged by LLM providers).
+ */
+function redactSecrets(text: string): string {
+  try {
+    const parsed = JSON.parse(text);
+    const redacted = redactObject(parsed);
+    return JSON.stringify(redacted, null, 2);
+  } catch {
+    // Not valid JSON — return as-is (non-JSON responses don't contain secrets)
+    return text;
+  }
+}
+
+const SECRET_FIELD_PATTERN = /^(api_secret|secret|.*_secret)$/i;
+const REDACTED_VALUE = "[REDACTED — use the Cloudinary dashboard to view secrets]";
+
+function redactObject(obj: unknown): unknown {
+  if (obj === null || obj === undefined) {
+    return obj;
+  }
+  if (Array.isArray(obj)) {
+    return obj.map(redactObject);
+  }
+  if (typeof obj === "object") {
+    const result: Record<string, unknown> = {};
+    for (const [key, value] of Object.entries(obj as Record<string, unknown>)) {
+      if (SECRET_FIELD_PATTERN.test(key) && typeof value === "string") {
+        result[key] = REDACTED_VALUE;
+      } else {
+        result[key] = redactObject(value);
+      }
+    }
+    return result;
+  }
+  return obj;
 }
 
 export function createRegisterTool(
