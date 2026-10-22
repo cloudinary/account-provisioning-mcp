@@ -28,7 +28,7 @@ Create a new user group for the account.`,
     const [result] = await userGroupsCreate(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

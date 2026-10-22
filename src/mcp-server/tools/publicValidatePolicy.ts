@@ -29,7 +29,7 @@ Validate a Cedar policy`,
     const [result] = await publicValidatePolicy(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

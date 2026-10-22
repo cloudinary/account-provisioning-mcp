@@ -50,7 +50,7 @@ Retrieve all custom permission policies defined for a specific scope. The scope 
       args.scope_id,
       args.enabled,
       args.cursor,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

@@ -37,7 +37,7 @@ Update a specific custom policy by providing the entire policy entity in the req
       client,
       args.policy_id,
       args.UpdateCustomPolicy,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

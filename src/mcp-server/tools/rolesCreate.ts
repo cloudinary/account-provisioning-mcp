@@ -29,7 +29,7 @@ Create a new custom role.`,
     const [result] = await rolesCreate(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

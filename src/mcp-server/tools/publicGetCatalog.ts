@@ -22,7 +22,7 @@ Retrieves the catalog of predefined system roles and their associated policies.`
   tool: async (client, ctx) => {
     const [result] = await publicGetCatalog(
       client,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

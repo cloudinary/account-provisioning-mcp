@@ -8,6 +8,12 @@ import { ClosedEnum } from "../types/enums.js";
 import { ErrorResponse, ErrorResponse$zodSchema } from "./errorresponse.js";
 import { UsersResponse, UsersResponse$zodSchema } from "./usersresponse.js";
 
+export type GetUsersGlobals = { account_id?: string | undefined };
+
+export const GetUsersGlobals$zodSchema: z.ZodType<GetUsersGlobals> = z.object({
+  account_id: z.string().describe("Account ID").optional(),
+});
+
 /**
  * Whether to return users who last logged in within the specified date range (include) or those who didn't
  *
@@ -72,12 +78,6 @@ export const GetUsersSortBy$zodSchema = z.enum([
   "activity",
   "created_at",
 ]);
-
-export type GetUsersGlobals = { account_id?: string | undefined };
-
-export const GetUsersGlobals$zodSchema: z.ZodType<GetUsersGlobals> = z.object({
-  account_id: z.string().describe("Account ID").optional(),
-});
 
 export type GetUsersRequest = {
   pending?: boolean | undefined;

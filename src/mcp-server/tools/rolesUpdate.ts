@@ -35,7 +35,7 @@ Update a specific custom role by providing all relevant details, including those
       client,
       args.role_id,
       args.Role,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

@@ -35,7 +35,7 @@ Update the name and/or status of an existing access key.`,
       args.sub_account_id,
       args.key,
       args.AccessKeyUpdateRequest,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

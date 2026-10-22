@@ -28,7 +28,7 @@ Delete a specific user.`,
     const [result] = await usersDelete(
       client,
       args.user_id,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

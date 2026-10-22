@@ -3,6 +3,8 @@
  * @generated-id: c52972a3b198
  */
 
+import { dlv } from "./dlv.js";
+
 import * as z from "zod";
 import { SDKOptions } from "./config.js";
 
@@ -36,13 +38,8 @@ export function env(): Env {
     return envMemo;
   }
 
-  const globals = globalThis as {
-    process?: { env?: Record<string, string | undefined> };
-    Deno?: { env?: { toObject?: () => Record<string, string | undefined> } };
-  };
-
   envMemo = envSchema.parse(
-    globals.process?.env ?? globals.Deno?.env?.toObject?.() ?? {},
+    dlv(globalThis, "process.env") ?? dlv(globalThis, "Deno.env") ?? {},
   );
   return envMemo;
 }

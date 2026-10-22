@@ -39,7 +39,7 @@ Retrieve all system-defined permission policies. Optionally filter the results b
       client,
       args.permission_type,
       args.scope_type,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

@@ -32,7 +32,7 @@ Update the details of a product environment.`,
       client,
       args.sub_account_id,
       args.ProductEnvironmentUpdateRequest,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

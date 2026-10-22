@@ -31,7 +31,7 @@ Generate a new access key.`,
       client,
       args.sub_account_id,
       args.AccessKeyRequest,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

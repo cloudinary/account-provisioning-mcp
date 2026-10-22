@@ -44,7 +44,7 @@ This endpoint is useful for:
     const [result] = await principalsInspectMultiple(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

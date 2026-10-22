@@ -30,7 +30,7 @@ Delete a specific access key by name.`,
       client,
       args.sub_account_id,
       args.name,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {
