@@ -1,6 +1,6 @@
 {
   "name": "@cloudinary/account-provisioning-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Cloudinary Account Provisioning MCP Server — manage product environments, users, groups, access keys, billing, roles, and permissions.",
   "mcpName": "io.github.cloudinary/account-provisioning-mcp",
   "author": "Cloudinary",
