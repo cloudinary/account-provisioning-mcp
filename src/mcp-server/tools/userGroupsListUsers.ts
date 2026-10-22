@@ -28,7 +28,7 @@ Retrieve the users in the group with the specified ID.`,
     const [result] = await userGroupsListUsers(
       client,
       args.group_id,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

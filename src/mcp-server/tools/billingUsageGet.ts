@@ -46,7 +46,7 @@ If \`year\` is not provided:
       client,
       args.year,
       args.include_prodenv_breakdown,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {
