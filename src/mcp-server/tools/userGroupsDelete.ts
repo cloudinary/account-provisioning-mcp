@@ -28,7 +28,7 @@ Delete a user group with the specified ID.`,
     const [result] = await userGroupsDelete(
       client,
       args.group_id,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

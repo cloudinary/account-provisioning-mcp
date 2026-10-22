@@ -28,7 +28,7 @@ Retrieve the product environments (sub-accounts) that a specific user has access
     const [result] = await usersListSubAccounts(
       client,
       args.user_id,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

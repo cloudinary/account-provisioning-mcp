@@ -73,7 +73,7 @@ Retrieve all roles associated with a specific principal.`,
       args.collection_id,
       args.param_key,
       args.param_value,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {
