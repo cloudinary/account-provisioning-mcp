@@ -11,6 +11,10 @@
     "type": "git",
     "url": "https://github.com/cloudinary/account-provisioning-mcp.git"
   },
+  "bin": {
+    "@cloudinary/account-provisioning-mcp": "bin/mcp-server.js",
+    "mcp": "bin/mcp-server.js"
+  },
   "homepage": "https://github.com/cloudinary/account-provisioning-mcp",
   "keywords": [
     "cloudinary",
@@ -22,10 +26,6 @@
     "permissions",
     "roles"
   ],
-  "bin": {
-    "@cloudinary/account-provisioning-mcp": "bin/mcp-server.js",
-    "mcp": "bin/mcp-server.js"
-  },
   "scripts": {
     "prebuild": "bash scripts/sync-server-json.sh",
     "build": "bun i && bun src/mcp-server/build.mts && tsc",
