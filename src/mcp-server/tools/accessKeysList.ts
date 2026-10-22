@@ -49,7 +49,7 @@ Retrieve an array of all access keys for a product environment.`,
       args.page,
       args.sort_by,
       args.sort_order,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

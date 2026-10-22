@@ -28,7 +28,7 @@ Retrieve a specific user.`,
     const [result] = await usersGet(
       client,
       args.user_id,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {
