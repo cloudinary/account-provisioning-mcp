@@ -28,7 +28,7 @@ Retrieve the groups that a specific user belongs to.`,
     const [result] = await usersGetGroups(
       client,
       args.user_id,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

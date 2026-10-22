@@ -22,7 +22,7 @@ Get Cedar schema`,
   tool: async (client, ctx) => {
     const [result] = await publicGetSchema(
       client,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

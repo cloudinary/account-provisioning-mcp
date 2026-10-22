@@ -32,7 +32,7 @@ Retrieve a specific user group.`,
       client,
       args.group_id,
       args.extended_details,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

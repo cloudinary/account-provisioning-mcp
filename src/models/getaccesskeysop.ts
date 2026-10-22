@@ -11,6 +11,13 @@ import {
 } from "./accesskeysresponse.js";
 import { ErrorResponse, ErrorResponse$zodSchema } from "./errorresponse.js";
 
+export type GetAccessKeysGlobals = { account_id?: string | undefined };
+
+export const GetAccessKeysGlobals$zodSchema: z.ZodType<GetAccessKeysGlobals> = z
+  .object({
+    account_id: z.string().describe("Account ID").optional(),
+  });
+
 /**
  * Which response parameter to sort by. **Possible values**: `api_key`, `created_at`, `name`, `enabled`.
  *
@@ -60,13 +67,6 @@ export const GetAccessKeysSortOrder$zodSchema = z.enum([
 ]).describe(
   "Control the order of returned keys. **Possible values**: `desc` (default), `asc`.\n",
 );
-
-export type GetAccessKeysGlobals = { account_id?: string | undefined };
-
-export const GetAccessKeysGlobals$zodSchema: z.ZodType<GetAccessKeysGlobals> = z
-  .object({
-    account_id: z.string().describe("Account ID").optional(),
-  });
 
 export type GetAccessKeysRequest = {
   sub_account_id: string;

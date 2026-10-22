@@ -50,7 +50,7 @@ Retrieve all system and custom roles of a specific \`permission_type\` (global o
       args.scope_type,
       args.management_type,
       args.policy_parameters,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {

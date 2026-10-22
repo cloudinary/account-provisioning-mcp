@@ -29,7 +29,7 @@ Create a new custom policy with a statement defined in Cedar. This policy specif
     const [result] = await customPoliciesCreate(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.mcpReq.signal } },
+      { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
     if (!result.ok) {
