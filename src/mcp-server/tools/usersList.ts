@@ -80,7 +80,7 @@ Returns an array of all users in the account, or if conditions are specified, re
       args.sort_by,
       args.page,
       args.page_size,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

@@ -81,7 +81,7 @@ This endpoint is useful when you want to:
       args.param_key,
       args.param_value,
       args.cursor,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

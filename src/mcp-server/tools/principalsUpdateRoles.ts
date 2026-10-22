@@ -31,7 +31,7 @@ Add or remove roles associated with a principal.`,
     const [result] = await principalsUpdateRoles(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {
