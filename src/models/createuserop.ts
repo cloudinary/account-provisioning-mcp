@@ -8,13 +8,6 @@ import { ClosedEnum } from "../types/enums.js";
 import { ErrorResponse, ErrorResponse$zodSchema } from "./errorresponse.js";
 import { User, User$zodSchema } from "./user.js";
 
-export type CreateUserGlobals = { account_id?: string | undefined };
-
-export const CreateUserGlobals$zodSchema: z.ZodType<CreateUserGlobals> = z
-  .object({
-    account_id: z.string().describe("Account ID").optional(),
-  });
-
 /**
  * The role to assign.
  */
@@ -41,6 +34,13 @@ export const CreateUserRole$zodSchema = z.enum([
   "media_library_admin",
   "media_library_user",
 ]).describe("The role to assign.");
+
+export type CreateUserGlobals = { account_id?: string | undefined };
+
+export const CreateUserGlobals$zodSchema: z.ZodType<CreateUserGlobals> = z
+  .object({
+    account_id: z.string().describe("Account ID").optional(),
+  });
 
 /**
  * User details.
