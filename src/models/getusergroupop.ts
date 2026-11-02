@@ -22,7 +22,7 @@ export type GetUserGroupRequest = {
 export const GetUserGroupRequest$zodSchema: z.ZodType<GetUserGroupRequest> = z
   .object({
     extended_details: z.boolean().describe(
-      "Whether to only return extended (true) or basic information about the group (false).\n**Default**: false.\n",
+      "Whether to only return extended (true) or basic information about the group (false). \n**Default**: false.\n",
     ).optional(),
     group_id: z.string().describe("The ID of the user group."),
   });

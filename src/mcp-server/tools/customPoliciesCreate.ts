@@ -4,11 +4,11 @@
  */
 
 import { customPoliciesCreate } from "../../funcs/customPoliciesCreate.js";
-import { CustomPolicy$zodSchema } from "../../models/custompolicy.js";
+import { CreateCustomPolicy$zodSchema } from "../../models/createcustompolicy.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  request: CustomPolicy$zodSchema.describe(`Policy details.`),
+  request: CreateCustomPolicy$zodSchema.describe(`Policy details.`),
 };
 
 export const tool$customPoliciesCreate: ToolDefinition<typeof args> = {

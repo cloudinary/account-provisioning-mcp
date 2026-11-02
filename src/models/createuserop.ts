@@ -6,10 +6,13 @@
 import * as z from "zod";
 import { ClosedEnum } from "../types/enums.js";
 import { ErrorResponse, ErrorResponse$zodSchema } from "./errorresponse.js";
+import { RoleAssignment, RoleAssignment$zodSchema } from "./roleassignment.js";
 import { User, User$zodSchema } from "./user.js";
 
 /**
- * The role to assign.
+ * The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead. Can't be combined with `roles` or `role_management`.
+ *
+ * @deprecated enum: Use `roles` (create) or `role_management` (update) instead..
  */
 export const CreateUserRole = {
   MasterAdmin: "master_admin",
@@ -21,7 +24,9 @@ export const CreateUserRole = {
   MediaLibraryUser: "media_library_user",
 } as const;
 /**
- * The role to assign.
+ * The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead. Can't be combined with `roles` or `role_management`.
+ *
+ * @deprecated enum: Use `roles` (create) or `role_management` (update) instead..
  */
 export type CreateUserRole = ClosedEnum<typeof CreateUserRole>;
 
@@ -33,7 +38,9 @@ export const CreateUserRole$zodSchema = z.enum([
   "reports",
   "media_library_admin",
   "media_library_user",
-]).describe("The role to assign.");
+]).describe(
+  "The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead. Can't be combined with `roles` or `role_management`.",
+);
 
 export type CreateUserGlobals = { account_id?: string | undefined };
 
@@ -51,6 +58,7 @@ export type CreateUserRequest = {
   role?: CreateUserRole | undefined;
   sub_account_ids?: Array<string> | undefined;
   enabled?: boolean | undefined;
+  roles?: Array<RoleAssignment> | undefined;
 };
 
 export const CreateUserRequest$zodSchema: z.ZodType<CreateUserRequest> = z
@@ -62,7 +70,12 @@ export const CreateUserRequest$zodSchema: z.ZodType<CreateUserRequest> = z
       "Whether the user is enabled. **Default**: true.\n",
     ),
     name: z.string().describe("The user's name."),
-    role: CreateUserRole$zodSchema.optional().describe("The role to assign."),
+    role: CreateUserRole$zodSchema.optional().describe(
+      "The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead. Can't be combined with `roles` or `role_management`.",
+    ),
+    roles: z.array(RoleAssignment$zodSchema).optional().describe(
+      "The roles to assign. Can't be sent together with `role`.",
+    ),
     sub_account_ids: z.array(z.string()).optional().describe(
       "A list of product environment IDs that this user can access. Ignored if the role is `master_admin`.\n**Default**: all product environments.\n",
     ),
