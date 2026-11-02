@@ -11,9 +11,9 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-  CustomPolicy,
-  CustomPolicy$zodSchema,
-} from "../models/custompolicy.js";
+  CreateCustomPolicy,
+  CreateCustomPolicy$zodSchema,
+} from "../models/createcustompolicy.js";
 import { APIError } from "../models/errors/apierror.js";
 import {
   ConnectionError,
@@ -36,7 +36,7 @@ import { Result } from "../types/fp.js";
  */
 export function customPoliciesCreate(
   client$: CldProvisioningCore,
-  request: CustomPolicy,
+  request: CreateCustomPolicy,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -59,7 +59,7 @@ export function customPoliciesCreate(
 
 async function $do(
   client$: CldProvisioningCore,
-  request: CustomPolicy,
+  request: CreateCustomPolicy,
   options?: RequestOptions,
 ): Promise<
   [
@@ -78,7 +78,7 @@ async function $do(
 > {
   const parsed$ = safeParse(
     request,
-    (value$) => CustomPolicy$zodSchema.parse(value$),
+    (value$) => CreateCustomPolicy$zodSchema.parse(value$),
     "Input validation failed",
   );
   if (!parsed$.ok) {

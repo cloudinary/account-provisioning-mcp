@@ -5,12 +5,14 @@
 
 import * as z from "zod";
 import { usersUpdate } from "../../funcs/usersUpdate.js";
-import { UserRequest$zodSchema } from "../../models/userrequest.js";
+import { UpdateUserRequestBody$zodSchema } from "../../models/updateuserop.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
   user_id: z.string().describe("The ID of the user."),
-  UserRequest: UserRequest$zodSchema.describe(`User details to update.`),
+  RequestBody: UpdateUserRequestBody$zodSchema.describe(
+    `User details to update.`,
+  ),
 };
 
 export const tool$usersUpdate: ToolDefinition<typeof args> = {
@@ -30,7 +32,7 @@ Update the details of a user.`,
     const [result] = await usersUpdate(
       client,
       args.user_id,
-      args.UserRequest,
+      args.RequestBody,
       { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 

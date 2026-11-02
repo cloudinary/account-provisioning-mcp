@@ -71,11 +71,11 @@
       "type": "string"
     }
   },
-  "version": "0.1.2",
+  "version": "0.2.0",
   "tools": [
     {
       "name": "product-environments-list",
-      "description": "Get product environments\n\nReturn an array of all product environments, or if conditions are specified,\nreturn the relevant product environments.\n"
+      "description": "Get product environments\n\nReturn an array of all product environments, or if conditions are specified, \nreturn the relevant product environments.\n"
     },
     {
       "name": "product-environments-create",
@@ -175,7 +175,7 @@
     },
     {
       "name": "billing-usage-get",
-      "description": "Get billing usage information\n\nRetrieve billing usage metrics for your account and product environments,\nincluding storage, bandwidth, impressions, and transformations.\n\nIf `year` is provided:\n  - **Annual subscription**: Returns the single annual usage cycle that began in the specified year (if any).\n  - **Monthly subscription**: Returns all monthly usage cycles that began in the specified year.\n\nIf `year` is not provided:\n  - Returns usage for the year in which the current active subscription period began.\n  - If no active subscription exists, an empty list is returned.\n\n**Note**: Usage metrics are updated daily, so calling this endpoint once per day gives you the latest data.\n"
+      "description": "Get billing usage information\n\nRetrieve billing usage metrics for your account and product environments, \nincluding storage, bandwidth, impressions, and transformations.\n\nIf `year` is provided:\n  - **Annual subscription**: Returns the single annual usage cycle that began in the specified year (if any).\n  - **Monthly subscription**: Returns all monthly usage cycles that began in the specified year.\n\nIf `year` is not provided:\n  - Returns usage for the year in which the current active subscription period began.\n  - If no active subscription exists, an empty list is returned.\n\n**Note**: Usage metrics are updated daily, so calling this endpoint once per day gives you the latest data.\n"
     },
     {
       "name": "get-catalog",

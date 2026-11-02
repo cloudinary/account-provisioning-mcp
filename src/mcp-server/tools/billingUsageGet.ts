@@ -20,7 +20,7 @@ export const tool$billingUsageGet: ToolDefinition<typeof args> = {
   name: "billing-usage-get",
   description: `Get billing usage information
 
-Retrieve billing usage metrics for your account and product environments,
+Retrieve billing usage metrics for your account and product environments, 
 including storage, bandwidth, impressions, and transformations.
 
 If \`year\` is provided:

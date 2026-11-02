@@ -8,8 +8,8 @@ import {
   PermissionsErrorResponse,
   PermissionsErrorResponse$zodSchema,
 } from "./permissionserrorresponse.js";
-import { Role, Role$zodSchema } from "./role.js";
 import { RoleResponse, RoleResponse$zodSchema } from "./roleresponse.js";
+import { UpdateRole, UpdateRole$zodSchema } from "./updaterole.js";
 
 export type UpdateRoleGlobals = { account_id?: string | undefined };
 
@@ -18,11 +18,11 @@ export const UpdateRoleGlobals$zodSchema: z.ZodType<UpdateRoleGlobals> = z
     account_id: z.string().describe("Account ID").optional(),
   });
 
-export type UpdateRoleRequest = { role_id: string; Role: Role };
+export type UpdateRoleRequest = { role_id: string; UpdateRole: UpdateRole };
 
 export const UpdateRoleRequest$zodSchema: z.ZodType<UpdateRoleRequest> = z
   .object({
-    Role: Role$zodSchema.describe("Role details"),
+    UpdateRole: UpdateRole$zodSchema.describe("Role details"),
     role_id: z.string().describe("A unique identifier for the role."),
   });
 

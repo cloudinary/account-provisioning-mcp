@@ -26,7 +26,7 @@ export type DedicatedFor = ClosedEnum<typeof DedicatedFor>;
 export const DedicatedFor$zodSchema = z.enum([
   "webhooks",
 ]).describe(
-  "Designates the access key for a specific purpose while allowing it to be used for other purposes, as well.\nThis action replaces any previously assigned key. **Possible values**: `webhooks`\n",
+  "Designates the access key for a specific purpose while allowing it to be used for other purposes, as well. \nThis action replaces any previously assigned key. **Possible values**: `webhooks`\n",
 );
 
 export type AccessKeyUpdateRequest = {
@@ -39,7 +39,7 @@ export const AccessKeyUpdateRequest$zodSchema: z.ZodType<
   AccessKeyUpdateRequest
 > = z.object({
   dedicated_for: DedicatedFor$zodSchema.optional().describe(
-    "Designates the access key for a specific purpose while allowing it to be used for other purposes, as well.\nThis action replaces any previously assigned key. **Possible values**: `webhooks`\n",
+    "Designates the access key for a specific purpose while allowing it to be used for other purposes, as well. \nThis action replaces any previously assigned key. **Possible values**: `webhooks`\n",
   ),
   enabled: z.boolean().optional().describe(
     "Whether the access key is enabled or disabled.",

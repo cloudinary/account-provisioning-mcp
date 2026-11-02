@@ -32,7 +32,7 @@ export const GetProductEnvironmentsRequest$zodSchema: z.ZodType<
     "A list of up to 100 product environment cloud names.",
   ).optional(),
   enabled: z.boolean().describe(
-    "Whether to only return enabled product environments (true) or disabled product environments (false).\n**Default**: all product environments are returned (both enabled and disabled).\n",
+    "Whether to only return enabled product environments (true) or disabled product environments (false). \n**Default**: all product environments are returned (both enabled and disabled).\n",
   ).optional(),
   ids: z.array(z.string()).describe(
     "A list of up to 100 product environment IDs. When provided, other parameters are ignored.",

@@ -19,7 +19,7 @@ import {
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import { Role } from "../models/role.js";
+import { UpdateRole } from "../models/updaterole.js";
 import {
   UpdateRoleRequest,
   UpdateRoleRequest$zodSchema,
@@ -38,7 +38,7 @@ import { Result } from "../types/fp.js";
 export function rolesUpdate(
   client$: CldProvisioningCore,
   role_id: string,
-  Role: Role,
+  UpdateRole: UpdateRole,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -55,7 +55,7 @@ export function rolesUpdate(
   return new APIPromise($do(
     client$,
     role_id,
-    Role,
+    UpdateRole,
     options,
   ));
 }
@@ -63,7 +63,7 @@ export function rolesUpdate(
 async function $do(
   client$: CldProvisioningCore,
   role_id: string,
-  Role: Role,
+  UpdateRole: UpdateRole,
   options?: RequestOptions,
 ): Promise<
   [
@@ -82,7 +82,7 @@ async function $do(
 > {
   const input$: UpdateRoleRequest = {
     role_id: role_id,
-    Role: Role,
+    UpdateRole: UpdateRole,
   };
 
   const parsed$ = safeParse(
@@ -94,7 +94,7 @@ async function $do(
     return [parsed$, { status: "invalid" }];
   }
   const payload$ = parsed$.value;
-  const body$ = encodeJSON("body", payload$.Role, { explode: true });
+  const body$ = encodeJSON("body", payload$.UpdateRole, { explode: true });
 
   const pathParams$ = {
     account_id: encodeSimple("account_id", client$._options.account_id, {

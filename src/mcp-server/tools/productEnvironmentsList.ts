@@ -9,7 +9,7 @@ import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
   enabled: z.boolean().describe(
-    "Whether to only return enabled product environments (true) or disabled product environments (false).\n**Default**: all product environments are returned (both enabled and disabled).\n",
+    "Whether to only return enabled product environments (true) or disabled product environments (false). \n**Default**: all product environments are returned (both enabled and disabled).\n",
   ).optional(),
   ids: z.array(z.string()).describe(
     "A list of up to 100 product environment IDs. When provided, other parameters are ignored.",
@@ -26,7 +26,7 @@ export const tool$productEnvironmentsList: ToolDefinition<typeof args> = {
   name: "product-environments-list",
   description: `Get product environments
 
-Return an array of all product environments, or if conditions are specified,
+Return an array of all product environments, or if conditions are specified, 
 return the relevant product environments.
 `,
   annotations: {

@@ -4,9 +4,46 @@
  */
 
 import * as z from "zod";
+import { ClosedEnum } from "../types/enums.js";
 import { ErrorResponse, ErrorResponse$zodSchema } from "./errorresponse.js";
+import {
+  RoleManagementRequest,
+  RoleManagementRequest$zodSchema,
+} from "./rolemanagementrequest.js";
 import { User, User$zodSchema } from "./user.js";
-import { UserRequest, UserRequest$zodSchema } from "./userrequest.js";
+
+/**
+ * The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead. Can't be combined with `roles` or `role_management`.
+ *
+ * @deprecated enum: Use `roles` (create) or `role_management` (update) instead..
+ */
+export const UpdateUserRole = {
+  MasterAdmin: "master_admin",
+  Admin: "admin",
+  Billing: "billing",
+  TechnicalAdmin: "technical_admin",
+  Reports: "reports",
+  MediaLibraryAdmin: "media_library_admin",
+  MediaLibraryUser: "media_library_user",
+} as const;
+/**
+ * The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead. Can't be combined with `roles` or `role_management`.
+ *
+ * @deprecated enum: Use `roles` (create) or `role_management` (update) instead..
+ */
+export type UpdateUserRole = ClosedEnum<typeof UpdateUserRole>;
+
+export const UpdateUserRole$zodSchema = z.enum([
+  "master_admin",
+  "admin",
+  "billing",
+  "technical_admin",
+  "reports",
+  "media_library_admin",
+  "media_library_user",
+]).describe(
+  "The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead. Can't be combined with `roles` or `role_management`.",
+);
 
 export type UpdateUserGlobals = { account_id?: string | undefined };
 
@@ -15,11 +52,48 @@ export const UpdateUserGlobals$zodSchema: z.ZodType<UpdateUserGlobals> = z
     account_id: z.string().describe("Account ID").optional(),
   });
 
-export type UpdateUserRequest = { user_id: string; UserRequest: UserRequest };
+/**
+ * User details to update.
+ */
+export type UpdateUserRequestBody = {
+  name?: string | undefined;
+  email?: string | undefined;
+  role?: UpdateUserRole | undefined;
+  sub_account_ids?: Array<string> | undefined;
+  enabled?: boolean | undefined;
+  role_management?: RoleManagementRequest | undefined;
+};
+
+export const UpdateUserRequestBody$zodSchema: z.ZodType<UpdateUserRequestBody> =
+  z.object({
+    email: z.string().optional().describe(
+      "A unique email address, which serves as the login name and notification address.",
+    ),
+    enabled: z.boolean().optional().describe(
+      "Whether the user is enabled. **Default**: true.\n",
+    ),
+    name: z.string().optional().describe("The user's name."),
+    role: UpdateUserRole$zodSchema.optional().describe(
+      "The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead. Can't be combined with `roles` or `role_management`.",
+    ),
+    role_management: RoleManagementRequest$zodSchema.optional().describe(
+      "A role management operation and the roles it applies to.",
+    ),
+    sub_account_ids: z.array(z.string()).optional().describe(
+      "A list of product environment IDs that this user can access. Ignored if the role is `master_admin`.\n**Default**: all product environments.\n",
+    ),
+  }).describe("User details to update.");
+
+export type UpdateUserRequest = {
+  user_id: string;
+  RequestBody: UpdateUserRequestBody;
+};
 
 export const UpdateUserRequest$zodSchema: z.ZodType<UpdateUserRequest> = z
   .object({
-    UserRequest: UserRequest$zodSchema.describe("User details to update."),
+    RequestBody: z.lazy(() => UpdateUserRequestBody$zodSchema).describe(
+      "User details to update.",
+    ),
     user_id: z.string().describe("The ID of the user."),
   });
 
