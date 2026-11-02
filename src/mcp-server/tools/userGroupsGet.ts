@@ -10,7 +10,7 @@ import { formatResult, ToolDefinition } from "../tools.js";
 const args = {
   group_id: z.string().describe("The ID of the user group."),
   extended_details: z.boolean().describe(
-    "Whether to only return extended (true) or basic information about the group (false).\n**Default**: false.\n",
+    "Whether to only return extended (true) or basic information about the group (false). \n**Default**: false.\n",
   ).optional(),
 };
 

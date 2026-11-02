@@ -13,7 +13,7 @@ export type UserGroupRequest = {
 export const UserGroupRequest$zodSchema: z.ZodType<UserGroupRequest> = z.object(
   {
     extended_details: z.boolean().optional().describe(
-      "Whether to only return extended (true) or basic information about the group (false).\n**Default**: false.\n",
+      "Whether to only return extended (true) or basic information about the group (false). \n**Default**: false.\n",
     ),
     name: z.string().optional().describe("The user group's name."),
   },

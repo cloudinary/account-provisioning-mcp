@@ -22,8 +22,8 @@ import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import {
   UpdateUserRequest,
   UpdateUserRequest$zodSchema,
+  UpdateUserRequestBody,
 } from "../models/updateuserop.js";
-import { UserRequest } from "../models/userrequest.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
@@ -38,7 +38,7 @@ import { Result } from "../types/fp.js";
 export function usersUpdate(
   client$: CldProvisioningCore,
   user_id: string,
-  UserRequest: UserRequest,
+  RequestBody: UpdateUserRequestBody,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -55,7 +55,7 @@ export function usersUpdate(
   return new APIPromise($do(
     client$,
     user_id,
-    UserRequest,
+    RequestBody,
     options,
   ));
 }
@@ -63,7 +63,7 @@ export function usersUpdate(
 async function $do(
   client$: CldProvisioningCore,
   user_id: string,
-  UserRequest: UserRequest,
+  RequestBody: UpdateUserRequestBody,
   options?: RequestOptions,
 ): Promise<
   [
@@ -82,7 +82,7 @@ async function $do(
 > {
   const input$: UpdateUserRequest = {
     user_id: user_id,
-    UserRequest: UserRequest,
+    RequestBody: RequestBody,
   };
 
   const parsed$ = safeParse(
@@ -94,7 +94,7 @@ async function $do(
     return [parsed$, { status: "invalid" }];
   }
   const payload$ = parsed$.value;
-  const body$ = encodeJSON("body", payload$.UserRequest, { explode: true });
+  const body$ = encodeJSON("body", payload$.RequestBody, { explode: true });
 
   const pathParams$ = {
     account_id: encodeSimple("account_id", client$._options.account_id, {

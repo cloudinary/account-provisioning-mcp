@@ -5,7 +5,7 @@
 <!-- Start Summary [summary] -->
 ## Summary
 
-Cloudinary Account Provisioning API: Accounts with provisioning API access can create and manage their **product environments**, **users** and **user groups** using the RESTful Provisioning API.
+Cloudinary Account Provisioning API: Accounts with provisioning API access can create and manage their **product environments**, **users** and **user groups** using the RESTful Provisioning API. 
 
 Provisioning API access is available [upon request](https://cloudinary.com/contact?plan=enterprise) for accounts on an [Enterprise plan](https://cloudinary.com/pricing#pricing-enterprise).
 
@@ -58,13 +58,13 @@ _Thank you for exploring this early release and helping us shape these tools to 
 <!-- Start Installation [installation] -->
 ## Installation
 
-The MCP server requires Node.js 20 or later.
+The MCP server requires Node.js 20.19.0 or later.
 <details>
 <summary>Claude Desktop</summary>
 
-Install the MCP server as a Desktop Extension using the pre-built [`mcp-server.mcpb`](https://github.com/cloudinary/account-provisioning-mcp/releases/download/v0.1.2/mcp-server.mcpb) file:
+Install the MCP server as a Desktop Extension using the pre-built [`mcp-server.mcpb`](https://github.com/cloudinary/account-provisioning-mcp/releases/download/v0.2.0/mcp-server.mcpb) file:
 
-Simply drag and drop the [`mcp-server.mcpb`](https://github.com/cloudinary/account-provisioning-mcp/releases/download/v0.1.2/mcp-server.mcpb) file onto Claude Desktop to install the extension.
+Simply drag and drop the [`mcp-server.mcpb`](https://github.com/cloudinary/account-provisioning-mcp/releases/download/v0.2.0/mcp-server.mcpb) file onto Claude Desktop to install the extension.
 
 The MCP bundle package includes the MCP server and all necessary configuration. Once installed, the server will be available without additional setup.
 

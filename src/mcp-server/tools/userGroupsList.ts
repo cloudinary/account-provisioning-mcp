@@ -9,7 +9,7 @@ import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
   extended_details: z.boolean().describe(
-    "Whether to only return extended (true) or basic information about the group (false).\n**Default**: false.\n",
+    "Whether to only return extended (true) or basic information about the group (false). \n**Default**: false.\n",
   ).optional(),
 };
 

@@ -5,12 +5,12 @@
 
 import * as z from "zod";
 import { rolesUpdate } from "../../funcs/rolesUpdate.js";
-import { Role$zodSchema } from "../../models/role.js";
+import { UpdateRole$zodSchema } from "../../models/updaterole.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
   role_id: z.string().describe("A unique identifier for the role."),
-  Role: Role$zodSchema.describe(`Role details`),
+  UpdateRole: UpdateRole$zodSchema.describe(`Role details`),
 };
 
 export const tool$rolesUpdate: ToolDefinition<typeof args> = {
@@ -34,7 +34,7 @@ Update a specific custom role by providing all relevant details, including those
     const [result] = await rolesUpdate(
       client,
       args.role_id,
-      args.Role,
+      args.UpdateRole,
       { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
