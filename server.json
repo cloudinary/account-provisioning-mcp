@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.cloudinary/account-provisioning-mcp",
+  "name": "com.cloudinary/account-provisioning-mcp",
   "title": "Cloudinary Account Provisioning",
   "description": "Manage Cloudinary account resources: product environments, users, groups, access keys, billing, roles, and permissions.",
   "repository": {

@@ -21,3 +21,13 @@ jobs:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
       npm_token: ${{ secrets.SDK_NPM_AUTH_TOKEN }}
+
+  docker:
+    needs: publish
+    uses: ./.github/workflows/image_publish.yaml
+    secrets: inherit
+
+  registry:
+    needs: docker
+    uses: ./.github/workflows/registry_publish.yaml
+    secrets: inherit

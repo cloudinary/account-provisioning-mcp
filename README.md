@@ -1,6 +1,6 @@
 # Cloudinary Account Provisioning MCP Server
 
-<!-- mcp-name: io.github.cloudinary/account-provisioning-mcp -->
+<!-- mcp-name: com.cloudinary/account-provisioning-mcp -->
 
 <!-- Start Summary [summary] -->
 ## Summary
